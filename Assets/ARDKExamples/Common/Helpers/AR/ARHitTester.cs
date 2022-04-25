@@ -38,6 +38,11 @@ namespace Niantic.ARDKExamples.Helpers
     /// Internal reference to the session, used to get the current frame to hit test against.
     private IARSession _session;
 
+    /// <summary>
+    /// Let enforce only one placement object is possible
+    /// </summary
+    private bool onePrefabIsValid = true;
+
     private void Start()
     {
       ARSessionFactory.SessionInitialized += OnAnyARSessionDidInitialize;
@@ -85,11 +90,18 @@ namespace Niantic.ARDKExamples.Helpers
         return;
       }
 
-      var touch = PlatformAgnosticInput.GetTouch(0);
-      if (touch.phase == TouchPhase.Began)
-      {
-        TouchBegan(touch);
-      }
+     var touch = PlatformAgnosticInput.GetTouch(0);
+
+            if (onePrefabIsValid)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+
+                    TouchBegan(touch);
+                    onePrefabIsValid = false;
+
+                }
+            }
     }
 
     private void TouchBegan(Touch touch)
@@ -119,7 +131,9 @@ namespace Niantic.ARDKExamples.Helpers
 
       var hitPosition = result.WorldTransform.ToPosition();
 
-      _placedObjects.Add(Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity));
+
+      // _placedObjects.Add(Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity));
+      Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity);
 
       var anchor = result.Anchor;
       Debug.LogFormat
