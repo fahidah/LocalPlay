@@ -3100,6 +3100,7 @@ GameObject:
   - component: {fileID: 672866086231702927}
   - component: {fileID: 672866086231702960}
   - component: {fileID: 672866086231702961}
+  - component: {fileID: -1256092059758195780}
   m_Layer: 0
   m_Name: Avatar
   m_TagString: Untagged
@@ -3179,6 +3180,19 @@ MonoBehaviour:
   AudioClip: {fileID: 0}
   AudioSource: {fileID: 0}
   AudioProvider: 0
+--- !u!114 &-1256092059758195780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672866086231702962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107d0e9314b83db49b5440931672d9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarAnimation: {fileID: 0}
 --- !u!1 &672866086283438305
 GameObject:
   m_ObjectHideFlags: 0
