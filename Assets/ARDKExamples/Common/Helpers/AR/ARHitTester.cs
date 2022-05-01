@@ -33,7 +33,7 @@ namespace Niantic.ARDKExamples.Helpers
     public GameObject PlacementObjectPf;
 
     /// A list of placed game objects to be destroyed in the OnDestroy method.
-    private List<GameObject> _placedObjects = new List<GameObject>();
+    private readonly List<GameObject> _placedObjects = new List<GameObject>();
 
     /// Internal reference to the session, used to get the current frame to hit test against.
     private IARSession _session;
@@ -132,7 +132,7 @@ namespace Niantic.ARDKExamples.Helpers
       var hitPosition = result.WorldTransform.ToPosition();
 
 
-      // _placedObjects.Add(Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity));
+      _placedObjects.Add(Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity));
       Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity);
 
       var anchor = result.Anchor;
