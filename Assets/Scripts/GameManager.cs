@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] public GameObject avatar;
+    public GameObject avatar;
     Transform cameraTransform;
     bool singleAvatar = true;
    
